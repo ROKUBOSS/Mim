@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Customer Care</title>
+  <link rel="shortcut icon" href="ictfavicon.webp" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    h5 {
+      font-size: 24px;
+      color: #ffd700;
+      margin-bottom: 30px;
+      text-align: center;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    button.collapsible {
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #ffd700;
+      cursor: pointer;
+      padding: 16px 20px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 12px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: 0.4s ease;
+      position: relative;
+    }
+
+    button.collapsible:hover {
+      background: #1e2a38;
+    }
+
+    .collapsible::after {
+      content: '\f078';
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      float: right;
+      transition: transform 0.3s;
+    }
+
+    .active::after {
+      transform: rotate(180deg);
+    }
+
+    .content {
+      background-color: rgba(255,255,255,0.95);
+      color: #000;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+      border-radius: 10px;
+      margin-top: 5px;
+      padding: 0 18px;
+    }
+
+    .content ul {
+      list-style: square;
+      padding: 15px;
+    }
+
+    .content li {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .content p {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
+      button.collapsible {
+        font-size: 16px;
+        padding: 14px;
+      }
+
+      .content li,
+      .content p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h5>🌐 ওয়েবসাইট টাইপ ও ফিচার তালিকা</h5>
+
+  <button class="collapsible">💼 Business Portfolio</button>
+  <div class="content">
+    <ul>
+      <li>Admin Dashboard</li>
+      <li>Product Selling System</li>
+      <li>Contact & Booking System</li>
+    </ul>
+  </div>
+
+  <button class="collapsible">🛒 Ecommerce Website</button>
+  <div class="content">
+    <ul>
+      <li>Favicon, Logo, Banner</li>
+      <li>Product Description, Images, Videos</li>
+      <li>Category/Subcategory/Sub-subcategory</li>
+      <li>Add to Cart & Buy Now System</li>
+      <li>Filtering, Sorting & Searching</li>
+      <li>Stock Inventory Management</li>
+      <li>Coupon & Discount System</li>
+      <li>Wishlist, Recently Viewed Products</li>
+      <li>Review & Rating (Only after purchase)</li>
+      <li>Authentication & User Roles</li>
+      <li>Multiple Payment Gateways (Bkash/Nagad/Cash/Rocket)</li>
+      <li>SSL Certificate</li>
+      <li>Live Location & Delivery Info</li>
+      <li>Meta Tags, Meta Pixel, Visitor Counter</li>
+      <li>Return, Refund, Privacy Policy & Terms Pages</li>
+      <li>Pagination, Responsive Design</li>
+      <li>Multi-Vendor System (Optional)</li>
+    </ul>
+  </div>
+
+  <button class="collapsible">🎓 Educational Website</button>
+  <div class="content">
+    <ul>
+      <li>Course Selling (Video + PDF)</li>
+      <li>E-book / PDF / Class Notes Selling</li>
+      <li>Live Class Integration</li>
+      <li>Product Shop (Books, Pens, etc.)</li>
+      <li>Multi Role System: Admin / Teacher / Student</li>
+    </ul>
+  </div>
+
+  <button class="collapsible">🚀 Why LensCafe Studio?</button>
+  <div class="content">
+    <p><strong>কেন LensCafe Studio থেকে ওয়েবসাইট বানানো সবচেয়ে ভালো সিদ্ধান্ত?</strong></p>
+    <ul>
+      <li>এক ছাতার নিচে সকল আইটি সেবা</li>
+      <li>অত্যন্ত কম খরচে ওয়েবসাইট তৈরি</li>
+      <li>কিস্তিতে ওয়েবসাইট তৈরির সুবিধা</li>
+      <li>প্রাইস শুরু মাত্র ২০,০০০ টাকা থেকে</li>
+      <li>Modern Stack: MERN / Python / .NET</li>
+    </ul>
+    <p><strong>MERN Stack এর সুবিধা:</strong></p>
+    <ul>
+      <li>Super Fast Performance</li>
+      <li>High Security</li>
+      <li>Easy Customization</li>
+    </ul>
+    <p>আপনার প্রয়োজন অনুযায়ী বিস্তারিত বোঝাতে আমাদের একজন দক্ষ ডেভেলপার আপনাকে খুব শীঘ্রই ফোনে যোগাযোগ করবেন।</p>
+  </div>
+
+  <script>
+    const coll = document.getElementsByClassName("collapsible");
+    for (let i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
