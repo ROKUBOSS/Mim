@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ওয়েবসাইট বিষয়ক FAQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4bb543;
+            --warning-color: #ffcc00;
+            --danger-color: #f44336;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .search-container {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .search-container input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: all 0.3s;
+            padding-left: 45px;
+        }
+        
+        .search-container input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+        
+        .faq-container {
+            margin-bottom: 20px;
+        }
+        
+        details {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            background-color: white;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        details:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        details[open] {
+            border-left-color: var(--accent-color);
+        }
+        
+        summary {
+            padding: 18px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--dark-color);
+            position: relative;
+            list-style: none;
+            background-color: #fff;
+            transition: all 0.2s;
+        }
+        
+        summary:hover {
+            background-color: #f8f9fa;
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: all 0.3s;
+        }
+        
+        details[open] summary::after {
+            content: '-';
+            color: var(--accent-color);
+        }
+        
+        details p {
+            padding: 0 20px 20px;
+            margin: 0;
+            color: #555;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        details ul {
+            padding: 0 20px 20px 40px;
+            color: #555;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        details li {
+            margin-bottom: 8px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            summary {
+                padding: 15px;
+            }
+            
+            details p {
+                padding: 0 15px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-question-circle"></i> ওয়েবসাইট বিষয়ক প্রশ্নোত্তর</h1>
+        
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="প্রশ্ন খুঁজুন..." onkeyup="filterFAQs()">
+        </div>
+        
+        <div class="faq-container" id="faqContainer">
+            <details>
+                <summary>ওয়েবসাইটের কতগুলো প্রধান অংশ থাকে?</summary>
+                <p>ওয়েবসাইটের প্রধানত দুটি অংশ থাকে: ফ্রন্টএন্ড (Front-end) এবং ব্যাকএন্ড (Back-end)।</p>
+            </details>
+        
+            <details>
+                <summary>ফ্রন্টএন্ড ডেভেলপমেন্ট বলতে কি বোঝায়?</summary>
+                <p>ফ্রন্টএন্ড ডেভেলপমেন্ট হলো ওয়েবসাইটের সেই অংশ যেটা ব্যবহারকারী দেখতে ও ব্যবহার করতে পারে, যেমন ডিজাইন, মেনু, বোতাম ইত্যাদি।</p>
+            </details>
+        
+            <details>
+                <summary>ব্যাকএন্ড ডেভেলপমেন্ট বলতে কি বোঝায়?</summary>
+                <p>ব্যাকএন্ড ডেভেলপমেন্ট হলো ওয়েবসাইটের অদৃশ্য অংশ যা সার্ভারে কাজ করে এবং তথ্য সংরক্ষণ ও প্রক্রিয়াকরণ করে।</p>
+            </details>
+        
+            <details>
+                <summary>আপনারা ফ্রন্টএন্ড ডেভেলপমেন্টে কোন টেকনোলজি ব্যবহার করেন?</summary>
+                <p>আমরা সাধারণত HTML, CSS, JavaScript, এবং React.js ব্যবহার করি।</p>
+            </details>
+        
+            <details>
+                <summary>আপনারা ব্যাকএন্ড ডেভেলপমেন্টে কোন টেকনোলজি ব্যবহার করেন?</summary>
+                <p>আমরা Node.js, Express.js, এবং MongoDB ব্যবহার করি।</p>
+            </details>
+        
+            <details>
+                <summary>ওয়েবসাইট বানাতে কত সময় লাগে?</summary>
+                <p>ওয়েবসাইটের জটিলতা অনুযায়ী সাধারণত ৭ দিন থেকে ৯০ দিন পর্যন্ত সময় লাগতে পারে।</p>
+            </details>
+        
+            <details>
+                <summary>ওয়েবসাইট তৈরি করতে খরচ কত?</summary>
+                <p>ওয়েবসাইটের ধরন ও ফিচার অনুযায়ী খরচ ভিন্ন হয়। সাধারণত ২০,০০০ টাকা থেকে শুরু হয়।</p>
+            </details>
+        
+            <details>
+                <summary>ডোমেইন ও হোস্টিং কি?</summary>
+                <p>ডোমেইন হলো ওয়েবসাইটের নাম (যেমন: www.farhanashop.com) এবং হোস্টিং হলো ওয়েবসাইট ফাইল যেখানে রাখা হয়।</p>
+            </details>
+        
+            <details>
+                <summary>আপনারা কি ডোমেইন-হোস্টিং প্রদান করেন?</summary>
+                <p>হ্যাঁ, আমরা ডোমেইন ও হোস্টিং সার্ভিস প্রদান করি।</p>
+            </details>
+        
+            <details>
+                <summary>ওয়েবসাইট কি মোবাইল রেসপন্সিভ হবে?</summary>
+                <p>হ্যাঁ, আমাদের সব ওয়েবসাইট মোবাইল, ট্যাব, ল্যাপটপ ও ডেস্কটপে রেসপন্সিভভাবে কাজ করে।</p>
+            </details>
+            
+            <details>
+                <summary>Static website কাকে বলে? উদাহরণসহ?</summary>
+                <p>যার কনটেন্ট পরিবর্তন হয় না, সব ইউজার একই পেজ দেখে। যেমন: HTML-এ তৈরি একটি প্রোফাইল ওয়েবসাইট।</p>
+            </details>
+        
+            <details>
+                <summary>Dynamic website কাকে বলে? উদাহরণসহ?</summary>
+                <p>যেখান থেকে ডাটাবেজের তথ্য অনুযায়ী কনটেন্ট পরিবর্তন হয়। যেমন: ফেসবুক, ই-কমার্স সাইট।</p>
+            </details>
+            
+            <details>
+                <summary>Business portfolio ওয়েবসাইট কাকে বলে?</summary>
+                <p>যেকোনো ব্যক্তি বা প্রতিষ্ঠানের কাজ, প্রজেক্ট, সার্ভিস ও সাফল্য উপস্থাপন করা হয় এমন ওয়েবসাইটকে বলে।</p>
+            </details>
+        
+            <details>
+                <summary>Favicon কাকে বলে?</summary>
+                <p>ব্রাউজারের ট্যাবে ওয়েবসাইটের আইকন (ছোট লোগো)।</p>
+            </details>
+        
+            <details>
+                <summary>Logo কাকে বলে?</summary>
+                <p>প্রতিষ্ঠানের পরিচিতি চিহ্ন বা প্রতীক।</p>
+            </details>
+        
+            <details>
+                <summary>Copyright কাকে বলে?</summary>
+                <p>কোনো কনটেন্ট বা ডিজাইনের স্বত্বাধিকার সংরক্ষণের অধিকার।</p>
+            </details>
+        
+            <details>
+                <summary>Website admin কাকে বলে?</summary>
+                <p>যিনি ওয়েবসাইট নিয়ন্ত্রণ ও কনটেন্ট ম্যানেজ করেন, তাকে অ্যাডমিন বলে।</p>
+            </details>
+        
+            <details>
+                <summary>Website dashboard কাকে বলে?</summary>
+                <p>একটি কন্ট্রোল প্যানেল, যেখানে অ্যাডমিন সাইটের ডেটা ও ফিচারগুলো সহজে ম্যানেজ করতে পারেন।</p>
+            </details>
+        
+            <details>
+                <summary>Website filtering and sorting কাকে বলে?</summary>
+                <p>ইউজার যেন নির্দিষ্ট মানদণ্ড অনুযায়ী কন্টেন্ট বাছাই বা সাজাতে পারে, সেটাই ফিল্টারিং ও সোর্টিং।</p>
+            </details>
+        
+            <details>
+                <summary>Website wishlist কাকে বলে?</summary>
+                <p>ইউজারদের পছন্দের পণ্য বা কনটেন্ট ভবিষ্যতে দেখার জন্য সংরক্ষণ করার ফিচার।</p>
+            </details>
+        
+            <details>
+                <summary>ওয়েবসাইট রেটিং এবং রিভিউ সিস্টেম কাকে বলে?</summary>
+                <p>ইউজাররা ওয়েবসাইট বা প্রোডাক্টে কতটুকু সন্তুষ্ট তা তারা রেটিং (স্টার/নাম্বার) ও রিভিউ (মতামত) দিয়ে জানায়।</p>
+            </details>
+        
+            <details>
+                <summary>Website authentication কাকে বলে?</summary>
+                <p>ইউজার লগইন করার মাধ্যমে সাইটে প্রবেশাধিকার নিশ্চিত করাকে অথেন্টিকেশন বলে।</p>
+            </details>
+        
+            <details>
+                <summary>Sign up and Sign in কাকে বলে?</summary>
+                <p>Sign Up মানে নতুন অ্যাকাউন্ট তৈরি করা, Sign In মানে সেই অ্যাকাউন্টে প্রবেশ করা।</p>
+            </details>
+        
+            <details>
+                <summary>Website pagination কাকে বলে?</summary>
+                <p>অনেক ডেটা বা পোস্টকে আলাদা আলাদা পাতায় দেখানোর ব্যবস্থা (Page 1, Page 2...)।</p>
+            </details>
+        
+            <details>
+                <summary>Payment gateway কাকে বলে? বাংলাদেশে কয়টি প্রচলিত?</summary>
+                <p>অনলাইনে টাকা লেনদেনের মাধ্যম। বাংলাদেশে ৫+ প্রচলিত, যেমন: bKash, Nagad, Rocket and Cash on delivery</p>
+            </details>
+        
+            <details>
+                <summary>Rating and review systems কাকে বলে?</summary>
+                <p>ইউজাররা প্রোডাক্ট/সার্ভিসের মান নিয়ে মতামত ও স্টার দিয়ে রেট করে।</p>
+            </details>
+        
+            <details>
+                <summary>Website visitor count কাকে বলে?</summary>
+                <p>ওয়েবসাইটে কতজন ইউজার এসেছে তার হিসাব রাখা।</p>
+            </details>
+        
+            <details>
+                <summary>Inventory management system কাকে বলে?</summary>
+                <p>পণ্যের সংখ্যা, স্টক ইন/আউট ও ম্যানেজমেন্ট করার পদ্ধতি।</p>
+            </details>
+        
+            <details>
+                <summary>Website user role কাকে বলে?</summary>
+                <p>ইউজারের দায়িত্বভিত্তিক রোল যেমন: Admin, Editor, Customer ইত্যাদি।</p>
+            </details>
+        
+            <details>
+                <summary>Category / Subcategory / Sub Subcategory কাকে বলে?</summary>
+                <p>পণ্যের প্রধান শ্রেণি (Category), তার ভেতরে ছোট ভাগ (Subcategory) এবং তার নিচে আরও ভাগ (Sub Subcategory)। যেমন: ইলেকট্রনিকস → মোবাইল → অ্যান্ড্রয়েড</p>
+            </details>
+        
+            <details>
+                <summary>Multi vendor website কাকে বলে?</summary>
+                <p>যেখানে একাধিক বিক্রেতা তাদের পণ্য বিক্রি করতে পারে। যেমন: Daraz, Evaly।</p>
+            </details>
+        
+            <details>
+                <summary>আপনাদের মোট কয়টা রেডি ওয়েবসাইট আছে?</summary>
+                <ul>
+                    <li>Education (Single Course)</li>
+                    <li>Education (Multi Course)</li>
+                    <li>E-commerce</li>
+                    <li>Dental</li>
+                    <li>Beauty Parlour</li>
+                    <li>Lawyer</li>
+                    <li>Business portfolio</li>
+                    <li>Etc...</li>
+                </ul>
+            </details>
+        </div>
+        
+        <div class="stats">
+            <div>মোট প্রশ্ন: <span id="totalQuestions">35</span></div>
+            <div>দেখানো হচ্ছে: <span id="showingQuestions">35</span></div>
+        </div>
+    </div>
+    
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        // Update question counts
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqs = document.querySelectorAll('details');
+            document.getElementById('totalQuestions').textContent = faqs.length;
+            document.getElementById('showingQuestions').textContent = faqs.length;
+            
+            // Add animation when opening/closing FAQs
+            faqs.forEach(detail => {
+                detail.addEventListener('toggle', function() {
+                    if (this.open) {
+                        this.querySelector('summary').style.backgroundColor = '#f8f9fa';
+                    } else {
+                        this.querySelector('summary').style.backgroundColor = '#fff';
+                    }
+                });
+            });
+        });
+        
+        // Search functionality
+        function filterFAQs() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            const faqContainer = document.getElementById('faqContainer');
+            const faqs = faqContainer.getElementsByTagName('details');
+            let showingCount = 0;
+            
+            for (let i = 0; i < faqs.length; i++) {
+                const summary = faqs[i].getElementsByTagName('summary')[0];
+                const txtValue = summary.textContent || summary.innerText;
+                
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    faqs[i].style.display = "";
+                    showingCount++;
+                } else {
+                    faqs[i].style.display = "none";
+                }
+            }
+            
+            document.getElementById('showingQuestions').textContent = showingCount;
+        }
+        
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Randomly open some FAQs for visual interest
+        window.addEventListener('load', function() {
+            const faqs = document.querySelectorAll('details');
+            const randomIndexes = [];
+            
+            // Get 3 random FAQs to open
+            while (randomIndexes.length < 3) {
+                const r = Math.floor(Math.random() * faqs.length);
+                if (randomIndexes.indexOf(r) === -1) randomIndexes.push(r);
+            }
+            
+            randomIndexes.forEach(index => {
+                faqs[index].open = true;
+                faqs[index].querySelector('summary').style.backgroundColor = '#f8f9fa';
+            });
+        });
+    </script>
+</body>
+</html>
