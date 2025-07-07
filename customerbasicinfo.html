@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Customer Information Form</title>
+  <title>কাস্টমার ইনফো ফর্ম</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #f4f6f8;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
     }
 
     .form-container {
       max-width: 700px;
-      margin: auto;
+      margin: 30px auto;
       background: #fff;
       padding: 30px;
       border-radius: 10px;
@@ -36,6 +37,7 @@
     input[type="text"],
     input[type="email"],
     input[type="url"],
+    input[type="file"],
     textarea {
       width: 100%;
       padding: 10px;
@@ -76,50 +78,57 @@
 <body>
 
   <div class="form-container">
-    <h2>📋 কাস্টমার ইনফরমেশন ফর্ম</h2>
-    
-    <form action="#" method="post">
+    <h2>📋 ক্লায়েন্ট ওয়েবসাইট ইনফো ফর্ম</h2>
+
+    <form action="#" method="post" enctype="multipart/form-data">
       <label>কোম্পানির নাম:</label>
-      <input type="text" name="company_name" placeholder="যেমন: LensCafe Studio" required>
+      <input type="text" name="company_name" required>
 
       <label>মোবাইল নম্বর:</label>
-      <input type="text" name="phone" placeholder="+8801XXXXXXXXX" required>
+      <input type="text" name="phone" required>
 
       <label>ইমেইল ঠিকানা:</label>
-      <input type="email" name="email" placeholder="example@email.com">
-
-      <label>WhatsApp নম্বর:</label>
-      <input type="text" name="whatsapp" placeholder="+8801XXXXXXXXX">
+      <input type="email" name="email">
 
       <label>ঠিকানা:</label>
-      <textarea name="address" placeholder="পূর্ণ ঠিকানা লিখুন" required></textarea>
+      <textarea name="address" required></textarea>
 
-      <label>Google Maps লিংক:</label>
-      <input type="url" name="map_link" placeholder="https://maps.google.com/...">
+      <label>Facebook Page Link:</label>
+<input type="url" name="facebook" placeholder="https://facebook.com/yourpage">
 
-      <label>ফেসবুক পেজ লিংক:</label>
-      <input type="url" name="facebook">
+<label>YouTube Link:</label>
+<input type="url" name="youtube" placeholder="https://youtube.com/yourchannel">
 
-      <label>ইনস্টাগ্রাম লিংক:</label>
-      <input type="url" name="instagram">
+<label>Instagram:</label>
+<input type="url" name="instagram" placeholder="https://instagram.com/yourprofile">
 
-      <label>ইউটিউব লিংক:</label>
-      <input type="url" name="youtube">
+<label>LinkedIn:</label>
+<input type="url" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
 
-      <label>সার্ভিস / প্রোডাক্টের তালিকা:</label>
-      <textarea name="services" placeholder="আপনার সার্ভিস বা প্রোডাক্ট লিখুন যেমন: ওয়েব ডিজাইন, ফটোগ্রাফি"></textarea>
+<label>TikTok:</label>
+<input type="url" name="tiktok" placeholder="https://tiktok.com/@yourusername">
 
-      <label>প্রতিষ্ঠা সাল:</label>
-      <input type="text" name="established" placeholder="যেমন: 2020">
 
-      <label>পছন্দের ওয়েবসাইটের লিংক (রেফারেন্স):</label>
-      <input type="url" name="reference_website" placeholder="https://example.com">
+      <label>লোগো আপলোড করুন:</label>
+      <input type="file" name="logo" accept="image/*">
 
-      <label>রঙের পছন্দ (Color Theme):</label>
-      <input type="text" name="color_theme" placeholder="যেমন: সবুজ এবং সাদা">
+      <label>ফেভিকন আপলোড করুন:</label>
+      <input type="file" name="favicon" accept="image/*">
+
+      <label>কপিরাইট টেক্সট:</label>
+      <input type="text" name="copyright" placeholder="যেমন: © 2025 Company Name. All rights reserved.">
+
+      <label>সার্ভিস বা পণ্যের তালিকা:</label>
+      <textarea name="services"></textarea>
+
+      <label>রঙের পছন্দ:</label>
+      <input type="text" name="color_theme" placeholder="যেমন: সবুজ ও সাদা">
+
+      <label>পছন্দের ওয়েবসাইট রেফারেন্স (যদি থাকে):</label>
+      <input type="url" name="reference_website">
 
       <label>অন্যান্য তথ্য:</label>
-      <textarea name="others" placeholder="যদি আরও কিছু যোগ করতে চান"></textarea>
+      <textarea name="others"></textarea>
 
       <button type="submit">✅ তথ্য সাবমিট করুন</button>
     </form>
