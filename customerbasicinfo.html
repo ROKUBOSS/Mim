@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Information Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 80px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #2ecc71;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>📋 কাস্টমার ইনফরমেশন ফর্ম</h2>
+    
+    <form action="#" method="post">
+      <label>কোম্পানির নাম:</label>
+      <input type="text" name="company_name" placeholder="যেমন: LensCafe Studio" required>
+
+      <label>মোবাইল নম্বর:</label>
+      <input type="text" name="phone" placeholder="+8801XXXXXXXXX" required>
+
+      <label>ইমেইল ঠিকানা:</label>
+      <input type="email" name="email" placeholder="example@email.com">
+
+      <label>WhatsApp নম্বর:</label>
+      <input type="text" name="whatsapp" placeholder="+8801XXXXXXXXX">
+
+      <label>ঠিকানা:</label>
+      <textarea name="address" placeholder="পূর্ণ ঠিকানা লিখুন" required></textarea>
+
+      <label>Google Maps লিংক:</label>
+      <input type="url" name="map_link" placeholder="https://maps.google.com/...">
+
+      <label>ফেসবুক পেজ লিংক:</label>
+      <input type="url" name="facebook">
+
+      <label>ইনস্টাগ্রাম লিংক:</label>
+      <input type="url" name="instagram">
+
+      <label>ইউটিউব লিংক:</label>
+      <input type="url" name="youtube">
+
+      <label>সার্ভিস / প্রোডাক্টের তালিকা:</label>
+      <textarea name="services" placeholder="আপনার সার্ভিস বা প্রোডাক্ট লিখুন যেমন: ওয়েব ডিজাইন, ফটোগ্রাফি"></textarea>
+
+      <label>প্রতিষ্ঠা সাল:</label>
+      <input type="text" name="established" placeholder="যেমন: 2020">
+
+      <label>পছন্দের ওয়েবসাইটের লিংক (রেফারেন্স):</label>
+      <input type="url" name="reference_website" placeholder="https://example.com">
+
+      <label>রঙের পছন্দ (Color Theme):</label>
+      <input type="text" name="color_theme" placeholder="যেমন: সবুজ এবং সাদা">
+
+      <label>অন্যান্য তথ্য:</label>
+      <textarea name="others" placeholder="যদি আরও কিছু যোগ করতে চান"></textarea>
+
+      <button type="submit">✅ তথ্য সাবমিট করুন</button>
+    </form>
+  </div>
+
+</body>
+</html>
